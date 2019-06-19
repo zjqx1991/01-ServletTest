@@ -12,6 +12,18 @@
 	<servlet>
 		<servlet-name>TestServlet</servlet-name>
 		<servlet-class>com.revanwang.servlet.test.TestServlet</servlet-class>
+		
+		<!-- 配置初始化参数 -->
+		<init-param>
+			<param-name>name</param-name>
+			<param-value>Revan</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>age</param-name>
+			<param-value>29</param-value>
+		</init-param>
+		
 	</servlet>
 	
 	<!-- 
@@ -29,5 +41,7 @@
 		<servlet-name>TestServlet</servlet-name>
 		<url-pattern>/test</url-pattern>
 	</servlet-mapping>
+	
+	
 
 </web-app>

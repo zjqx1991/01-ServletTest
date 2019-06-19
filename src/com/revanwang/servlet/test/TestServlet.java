@@ -4,12 +4,14 @@
 package com.revanwang.servlet.test;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+
 
 /**
  * @Desc 	
@@ -19,10 +21,11 @@ import javax.servlet.ServletResponse;
  */
 public class TestServlet implements Servlet {
 
+	private ServletConfig config;
+	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		// TODO Auto-generated method stub
-		
+		this.config = config;
 	}
 
 	@Override
@@ -33,7 +36,15 @@ public class TestServlet implements Servlet {
 
 	@Override
 	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
-		System.out.print("Servlet初体验");
+		System.out.println("Servlet初体验");
+		Enumeration<String> ensEnumeration = this.config.getInitParameterNames();
+		while (ensEnumeration.hasMoreElements()) {
+			String key = (String) ensEnumeration.nextElement();
+			String value = this.config.getInitParameter(key);
+			
+			System.out.println("key:" + key);
+			System.out.println("value:" + value);
+		}
 	}
 
 	@Override
