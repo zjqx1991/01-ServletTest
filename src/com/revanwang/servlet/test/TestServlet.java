@@ -36,6 +36,10 @@ public class TestServlet implements Servlet {
 
 	@Override
 	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
+		
+		//设置UTF-8的编码
+		req.setCharacterEncoding("UTF-8");
+		
 		System.out.println("Servlet初体验");
 		Enumeration<String> ensEnumeration = this.config.getInitParameterNames();
 		while (ensEnumeration.hasMoreElements()) {
@@ -45,6 +49,18 @@ public class TestServlet implements Servlet {
 			System.out.println("key:" + key);
 			System.out.println("value:" + value);
 		}
+		//请求参数
+		ensEnumeration = req.getParameterNames();
+		while (ensEnumeration.hasMoreElements()) {
+			String keyString = (String) ensEnumeration.nextElement();
+			System.out.println("请求参数：" + keyString + " Key的Value:"  + req.getParameterValues(keyString).toString());
+			String[] valueStrings = req.getParameterValues(keyString);
+			for (String value : valueStrings) {
+				System.out.println(keyString + "____" + value);
+			}
+			
+		}
+
 	}
 
 	@Override
