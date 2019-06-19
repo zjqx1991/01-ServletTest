@@ -34,7 +34,6 @@ public class TestServlet implements Servlet {
 	@Override
 	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
 		System.out.print("Servlet初体验");
-		
 	}
 
 	@Override

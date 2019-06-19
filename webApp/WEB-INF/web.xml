@@ -9,4 +9,15 @@
   metadata-complete="true">
 
 
+	<servlet>
+		<servlet-name>TestServlet</servlet-name>
+		<servlet-class>com.revanwang.servlet.test.TestServlet</servlet-class>
+	</servlet>
+	
+	<!-- 向外曝露该Servlet类的一个资源名称，共外界访问，该资源名称必须要以 / 开头 -->
+	<servlet-mapping>
+		<servlet-name>TestServlet</servlet-name>
+		<url-pattern>/test</url-pattern>
+	</servlet-mapping>
+
 </web-app>
